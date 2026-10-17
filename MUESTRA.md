@@ -1,116 +1,115 @@
-# Quiver T-09 · Muestra de registro de decisiones
+# Quiver T-09 · Decision-register sample
 
-Autor: EazyHood, con asistencia de IA. Fuente fijada al commit `9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e`.
+Prepared by EazyHood with AI assistance. Sources pinned to `9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e`.
 
-Muestra M0 de diez decisiones, en cuatro fases. No afirma asignación, aprobación, prueba física ni cumplimiento de M1/M2. La investigación enlaza cada afirmación a un pasaje concreto y conserva las incertidumbres.
+M0 sample of ten decisions across four phases. It does not claim assignment, acceptance, physical testing, or completion of M1/M2. Each claim links to a specific passage and preserves uncertainty.
 
-## Criterio de estados
+## Status definitions
 
-**Standing**: decisión sustentada en la fase citada, sin sustitución identificada dentro de esta muestra; no certifica el estado físico actual. **Superseded**: existe sustitución explícita citada. **Open**: queda una limitación o contradicción que impide cerrar su vigencia o resultado. Las fechas no documentadas no se inventan.
+**Standing** means supported in the cited phase, with no superseding decision found within this sample; it does not certify the current physical aircraft. **Superseded** identifies an explicitly cited replacement. **Open** preserves a limitation or contradiction that prevents closing the decision's current applicability or outcome. Undocumented dates are not invented.
 
-## Tabla de registro solicitada
+## Requested register format
 
 | ID | Phase | Decision | Replaced | Why | Evidence | Status |
 |---|---|---|---|---|---|---|
-| D-001 | PT1 | Calcular CG e inercias desde el CAD de Onshape; actualizar una masa añadida con promedio ponderado y ejes paralelos. | No se identifica un método anterior. | Hacer repetible el cálculo sin esperar el cierre de todos los detalles del diseño. La nota propone un script Octave. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md#L9-L24) | Open |
-| D-002 | PT1 | Seleccionar el conjunto integrado Hobbywing XRotor X6 Plus. | Alternativas comparadas en la tabla; no consta una sustitución de hardware ya instalado. | La comparación del informe favorece coste, empuje y peso, además de reducir el trabajo de instalación. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT1-Engineering-Report.md#L567-L591) | Open |
-| D-003 | PT2 | Utilizar conectores EURO en la PCB principal. | No se identifica el conector previo a PT2. | Facilitar el mantenimiento, según la lista de capacidades de PT2. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L450-L464); [Fuente 2](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L122-L124) | Superseded by D-005 |
-| D-004 | PT2 | Separar la precarga al accionar el interruptor principal y la activación del SSR mediante radio y GPIO del controlador. | No se documenta una arquitectura anterior en este pasaje. | Limitar la corriente de irrupción antes del cierre del SSR; permitir cortar potencia a los motores desde el control remoto. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L470-L473); [Fuente 2](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L126-L128) | Standing |
-| D-005 | PT3 | Reemplazar terminales estilo Euro por conectores Phoenix en la PCB principal. | D-003: conectores EURO de PT2. | El informe justifica el cambio por prototipado más rápido y conexiones de campo más fiables. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L118-L128) | Standing |
-| D-006 | PT3 | Situar GNSS aproximadamente 2 cm sobre el recinto FCU mediante un soporte de arco, separado de la PCB. | Se introduce un soporte nuevo; no se identifica aquí la ubicación exacta anterior. | Reducir interferencia electromagnética y sostener el receptor sin contacto directo con FCU/PCB. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L71-L78) | Open |
-| D-007 | PT3 | Montar las interfaces de accesorios en extensores de 3 cm. | Se añade separación respecto al fuselaje; la nota no especifica todos los montajes anteriores. | Mejorar el acceso para desmontar y reemplazar equipos de misión. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L85-L93) | Standing |
-| D-008 | PT3 | Prolongar los orificios de los tornillos inferiores de los brazos a través de las paredes de batería y añadir recortes de acceso. | Acceso previo entre placa intermedia y pared de batería mediante orificios achaflanados. | Los tornillos eran difíciles de sustituir; los recortes permiten utilizar una llave Allen. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L125-L129) | Standing |
-| D-009 | Dev kit | Fijar la PCB principal a una interfaz impresa en 3D montada sobre amortiguadores de goma. | La nota no identifica un montaje anterior concreto. | Reducir la transmisión de vibración de alta frecuencia desde el bastidor a la PCB y sensores del controlador. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md#L1-L27) | Standing |
-| D-010 | Dev kit | Documentar la maleta Pelican 1640 y espuma PE, manteniendo abierta la contradicción con Nanuk en la misma nota. | La propuesta incorporada dice Nanuk; el resumen de realización dice Pelican 1640. | Transportar el dron y accesorios con retención y protección. | [Fuente 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md#L9-L27) | Open |
+| D-001 | PT1 | Calculate CG and inertia from Onshape CAD; incorporate an added mass using a weighted average and the parallel-axis theorem. | No earlier method is identified. | Make the calculation repeatable before all design details are finalized. The note proposes an Octave script. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md#L9-L24) | Open |
+| D-002 | PT1 | Select the integrated Hobbywing XRotor X6 Plus propulsion assembly. | Alternatives compared in the table; replacement of already-installed hardware is not established. | The report comparison favors cost, thrust, and weight, while reducing installation work. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT1-Engineering-Report.md#L567-L591) | Open |
+| D-003 | PT2 | Use EURO connectors on the main PCB. | The connector used before PT2 is not identified. | Improve maintainability, according to the PT2 feature list. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L450-L464); [Source 2](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L122-L124) | Superseded by D-005 |
+| D-004 | PT2 | Separate precharge triggered by the main switch from SSR activation through radio control and the flight controller GPIO. | No preceding architecture is documented in this passage. | Limit inrush current before the SSR closes, and allow motor power to be cut through remote control. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L470-L473); [Source 2](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L126-L128) | Standing |
+| D-005 | PT3 | Replace Euro-style terminals with Phoenix connectors on the main PCB. | D-003: PT2 EURO connectors. | The report attributes the change to faster prototyping and more reliable field connections. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L118-L128) | Standing |
+| D-006 | PT3 | Position the GNSS approximately 2 cm above the FCU enclosure using an arch bracket, separated from the PCB. | A new bracket is introduced; the exact previous position is not identified here. | Reduce electromagnetic interference and support the receiver without direct contact with the FCU or PCB. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L71-L78) | Open |
+| D-007 | PT3 | Mount attachment interfaces on 3 cm extenders. | Clearance from the airframe is added; the note does not specify every earlier mount. | Improve access when removing and replacing mission equipment. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L85-L93) | Standing |
+| D-008 | PT3 | Extend the lower arm screw holes through the battery walls and add access cutouts. | Earlier access between the middle plate and battery wall through chamfered holes. | The screws were difficult to replace; the cutouts allow access with an Allen key. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L125-L129) | Standing |
+| D-009 | Dev Kit | Secure the main PCB to a 3D-printed interface mounted on rubber dampers. | The note does not identify a specific earlier mount. | Reduce transmission of high-frequency vibration from the frame to the PCB and flight-controller sensors. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md#L1-L27) | Standing |
+| D-010 | Dev Kit | Record the Pelican 1640 case and PE foam while leaving the contradictory Nanuk reference in the same note unresolved. | The embedded proposal names Nanuk; the implementation summary names Pelican 1640. | Transport the drone and accessories with retention and protection. | [Source 1](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md#L9-L27) | Open |
 
 ## D-001 · PT1 · Open
 
-**Decisión:** Calcular CG e inercias desde el CAD de Onshape; actualizar una masa añadida con promedio ponderado y ejes paralelos.
-**Sustituye:** No se identifica un método anterior.
-**Motivo documentado:** Hacer repetible el cálculo sin esperar el cierre de todos los detalles del diseño. La nota propone un script Octave.
-**Límite de la evidencia:** La fuente omite tornillería, cables y conectores. No extrapolar estos resultados a la masa medida del dev kit ni afirmar que aquí se validó el script.
-**Evidencia:** [task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md, líneas 9–24](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md#L9-L24)
+**Decision:** Calculate CG and inertia from Onshape CAD; incorporate an added mass using a weighted average and the parallel-axis theorem.
+**Replaced:** No earlier method is identified.
+**Documented rationale:** Make the calculation repeatable before all design details are finalized. The note proposes an Octave script.
+**Evidence limit:** The source omits fasteners, cables, and connectors. These results do not establish the measured mass of the dev kit, and this review did not validate the script.
+**Evidence:** [task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md, lines 9–24](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md#L9-L24)
 
 ## D-002 · PT1 · Open
 
-**Decisión:** Seleccionar el conjunto integrado Hobbywing XRotor X6 Plus.
-**Sustituye:** Alternativas comparadas en la tabla; no consta una sustitución de hardware ya instalado.
-**Motivo documentado:** La comparación del informe favorece coste, empuje y peso, además de reducir el trabajo de instalación.
-**Límite de la evidencia:** Selección histórica documentada. No confirma la variante ni el inventario de motores instalados en octubre de 2026.
-**Evidencia:** [docs/Engineering-Reports/PT1-Engineering-Report.md, líneas 567–591](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT1-Engineering-Report.md#L567-L591)
+**Decision:** Select the integrated Hobbywing XRotor X6 Plus propulsion assembly.
+**Replaced:** Alternatives compared in the table; replacement of already-installed hardware is not established.
+**Documented rationale:** The report comparison favors cost, thrust, and weight, while reducing installation work.
+**Evidence limit:** This is a documented historical selection. It does not establish the exact variant or inventory installed in October 2026.
+**Evidence:** [docs/Engineering-Reports/PT1-Engineering-Report.md, lines 567–591](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT1-Engineering-Report.md#L567-L591)
 
 ## D-003 · PT2 · Superseded by D-005
 
-**Decisión:** Utilizar conectores EURO en la PCB principal.
-**Sustituye:** No se identifica el conector previo a PT2.
-**Motivo documentado:** Facilitar el mantenimiento, según la lista de capacidades de PT2.
-**Límite de la evidencia:** Sustituida explícitamente por Phoenix en PT3: véase D-005. No significa que toda placa PT2 haya sido retirada.
-**Evidencia:** [docs/Engineering-Reports/PT2-Engineering-Report.md, líneas 450–464](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L450-L464) · [docs/Engineering-Reports/PT3-Engineering-Report.md, líneas 122–124](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L122-L124)
+**Decision:** Use EURO connectors on the main PCB.
+**Replaced:** The connector used before PT2 is not identified.
+**Documented rationale:** Improve maintainability, according to the PT2 feature list.
+**Evidence limit:** Explicitly superseded by Phoenix connectors in PT3: see D-005. This does not imply that every PT2 board was withdrawn.
+**Evidence:** [docs/Engineering-Reports/PT2-Engineering-Report.md, lines 450–464](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L450-L464) · [docs/Engineering-Reports/PT3-Engineering-Report.md, lines 122–124](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L122-L124)
 
 ## D-004 · PT2 · Standing
 
-**Decisión:** Separar la precarga al accionar el interruptor principal y la activación del SSR mediante radio y GPIO del controlador.
-**Sustituye:** No se documenta una arquitectura anterior en este pasaje.
-**Motivo documentado:** Limitar la corriente de irrupción antes del cierre del SSR; permitir cortar potencia a los motores desde el control remoto.
-**Límite de la evidencia:** Arquitectura descrita, no ensayo propio de seguridad. El informe PT3 conserva precarga y control SSR; la implementación exacta requiere esquema de revisión.
-**Evidencia:** [docs/Engineering-Reports/PT2-Engineering-Report.md, líneas 470–473](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L470-L473) · [docs/Engineering-Reports/PT3-Engineering-Report.md, líneas 126–128](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L126-L128)
+**Decision:** Separate precharge triggered by the main switch from SSR activation through radio control and the flight controller GPIO.
+**Replaced:** No preceding architecture is documented in this passage.
+**Documented rationale:** Limit inrush current before the SSR closes, and allow motor power to be cut through remote control.
+**Evidence limit:** This describes an architecture, not a safety test performed by this review. PT3 retains precharge and SSR control; the exact implementation requires the applicable schematic revision.
+**Evidence:** [docs/Engineering-Reports/PT2-Engineering-Report.md, lines 470–473](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L470-L473) · [docs/Engineering-Reports/PT3-Engineering-Report.md, lines 126–128](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L126-L128)
 
 ## D-005 · PT3 · Standing
 
-**Decisión:** Reemplazar terminales estilo Euro por conectores Phoenix en la PCB principal.
-**Sustituye:** D-003: conectores EURO de PT2.
-**Motivo documentado:** El informe justifica el cambio por prototipado más rápido y conexiones de campo más fiables.
-**Límite de la evidencia:** El motivo se atribuye al informe; no se afirma una mejora de fiabilidad cuantificada por esta revisión.
-**Evidencia:** [docs/Engineering-Reports/PT3-Engineering-Report.md, líneas 118–128](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L118-L128)
+**Decision:** Replace Euro-style terminals with Phoenix connectors on the main PCB.
+**Replaced:** D-003: PT2 EURO connectors.
+**Documented rationale:** The report attributes the change to faster prototyping and more reliable field connections.
+**Evidence limit:** The rationale is attributed to the report; this review does not claim a quantified reliability improvement.
+**Evidence:** [docs/Engineering-Reports/PT3-Engineering-Report.md, lines 118–128](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L118-L128)
 
 ## D-006 · PT3 · Open
 
-**Decisión:** Situar GNSS aproximadamente 2 cm sobre el recinto FCU mediante un soporte de arco, separado de la PCB.
-**Sustituye:** Se introduce un soporte nuevo; no se identifica aquí la ubicación exacta anterior.
-**Motivo documentado:** Reducir interferencia electromagnética y sostener el receptor sin contacto directo con FCU/PCB.
-**Límite de la evidencia:** Es intención del diseño. Faltan mediciones comparables de EMI para concluir que resolvió el problema.
-**Evidencia:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, líneas 71–78](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L71-L78)
+**Decision:** Position the GNSS approximately 2 cm above the FCU enclosure using an arch bracket, separated from the PCB.
+**Replaced:** A new bracket is introduced; the exact previous position is not identified here.
+**Documented rationale:** Reduce electromagnetic interference and support the receiver without direct contact with the FCU or PCB.
+**Evidence limit:** This is a design intention. Comparable EMI measurements are missing, so it cannot establish that the interference problem was resolved.
+**Evidence:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, lines 71–78](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L71-L78)
 
 ## D-007 · PT3 · Standing
 
-**Decisión:** Montar las interfaces de accesorios en extensores de 3 cm.
-**Sustituye:** Se añade separación respecto al fuselaje; la nota no especifica todos los montajes anteriores.
-**Motivo documentado:** Mejorar el acceso para desmontar y reemplazar equipos de misión.
-**Límite de la evidencia:** Decisión dimensional explícita. No implica compatibilidad demostrada con todos los accesorios.
-**Evidencia:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, líneas 85–93](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L85-L93)
+**Decision:** Mount attachment interfaces on 3 cm extenders.
+**Replaced:** Clearance from the airframe is added; the note does not specify every earlier mount.
+**Documented rationale:** Improve access when removing and replacing mission equipment.
+**Evidence limit:** The dimension is explicitly documented. It does not establish compatibility with every attachment.
+**Evidence:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, lines 85–93](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L85-L93)
 
 ## D-008 · PT3 · Standing
 
-**Decisión:** Prolongar los orificios de los tornillos inferiores de los brazos a través de las paredes de batería y añadir recortes de acceso.
-**Sustituye:** Acceso previo entre placa intermedia y pared de batería mediante orificios achaflanados.
-**Motivo documentado:** Los tornillos eran difíciles de sustituir; los recortes permiten utilizar una llave Allen.
-**Límite de la evidencia:** Cambio de mantenibilidad documentado; no se ha cronometrado un montaje ni inspeccionado una unidad.
-**Evidencia:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, líneas 125–129](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L125-L129)
+**Decision:** Extend the lower arm screw holes through the battery walls and add access cutouts.
+**Replaced:** Earlier access between the middle plate and battery wall through chamfered holes.
+**Documented rationale:** The screws were difficult to replace; the cutouts allow access with an Allen key.
+**Evidence limit:** This is a documented maintainability change. No assembly time was measured and no physical unit was inspected during this review.
+**Evidence:** [task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md, lines 125–129](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L125-L129)
 
-## D-009 · Dev kit · Standing
+## D-009 · Dev Kit · Standing
 
-**Decisión:** Fijar la PCB principal a una interfaz impresa en 3D montada sobre amortiguadores de goma.
-**Sustituye:** La nota no identifica un montaje anterior concreto.
-**Motivo documentado:** Reducir la transmisión de vibración de alta frecuencia desde el bastidor a la PCB y sensores del controlador.
-**Límite de la evidencia:** La fuente marca la nota Valid. No aporta aquí valores de atenuación medidos; se conserva como objetivo, no resultado certificado.
-**Evidencia:** [task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md, líneas 1–27](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md#L1-L27)
+**Decision:** Secure the main PCB to a 3D-printed interface mounted on rubber dampers.
+**Replaced:** The note does not identify a specific earlier mount.
+**Documented rationale:** Reduce transmission of high-frequency vibration from the frame to the PCB and flight-controller sensors.
+**Evidence limit:** The source labels the note Valid. It provides no measured attenuation values here; vibration reduction remains an objective rather than a result certified by this review.
+**Evidence:** [task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md, lines 1–27](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md#L1-L27)
 
-## D-010 · Dev kit · Open
+## D-010 · Dev Kit · Open
 
-**Decisión:** Documentar la maleta Pelican 1640 y espuma PE, manteniendo abierta la contradicción con Nanuk en la misma nota.
-**Sustituye:** La propuesta incorporada dice Nanuk; el resumen de realización dice Pelican 1640.
-**Motivo documentado:** Transportar el dron y accesorios con retención y protección.
-**Límite de la evidencia:** La entrega no resuelve por inferencia la discrepancia. Pedir confirmación de modelo/BOM y marcar la propuesta antigua como sustituida si el responsable lo acredita.
-**Evidencia:** [task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md, líneas 9–27](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md#L9-L27)
+**Decision:** Record the Pelican 1640 case and PE foam while leaving the contradictory Nanuk reference in the same note unresolved.
+**Replaced:** The embedded proposal names Nanuk; the implementation summary names Pelican 1640.
+**Documented rationale:** Transport the drone and accessories with retention and protection.
+**Evidence limit:** This submission does not resolve the discrepancy by inference. The model/BOM needs confirmation before the earlier proposal can be marked as superseded.
+**Evidence:** [task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md, lines 9–27](https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md#L9-L27)
 
-## Preguntas que debe cerrar el responsable
+## Questions for the project lead
 
-1. ¿Qué revisión exacta de hardware, BOM y masa se considera el dev kit de referencia de 2026?
-2. ¿Se confirma Pelican 1640 como realización final y Nanuk como propuesta sustituida?
-3. ¿Quién facilita el pesaje del fuselaje, imágenes de construcción y datos solicitados por #209?
-4. ¿Se confirma recompensa en efectivo/USDC y aceptación secuencial de M0, M1 y M2 antes de empezar el trabajo remunerado?
-5. ¿Es admisible la documentación en español o se necesita traducción validada para M1/M2?
+1. Which exact hardware revision, BOM, and measured mass define the reference 2026 dev kit?
+2. Is Pelican 1640 the final implementation and Nanuk the superseded proposal?
+3. Who supplies the airframe weighing, build images, and weight data referenced by issue #209?
+4. Can the payout currency and sequential acceptance of M0, M1, and M2 be confirmed before paid work starts?
 
-## Alcance que no se ha realizado
+## Work not performed
 
-No se fabricó, pesó ni voló un dron. No se verificó la continuidad eléctrica ni se certificó seguridad operacional. No se adjudica retrospectivamente un motivo no escrito ni se presenta una simulación como medición. No se completa M1/M2 antes de la asignación.
+No drone was built, weighed, or flown. Electrical continuity and operational safety were not certified. Unwritten rationale is not assigned retrospectively, and simulation is not presented as measurement. M1/M2 have not been started before assignment.

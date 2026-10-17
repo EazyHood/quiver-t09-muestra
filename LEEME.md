@@ -1,5 +1,5 @@
-Muestra documental M0 de Quiver T-09.
-Creada por Codex cuenta 3 para EazyHood.
-Fecha: 16 de octubre de 2026.
-La usa la revisión previa a asignación de Arrow Air.
-Conservar mientras la candidatura siga vigente.
+Quiver T-09 documentary M0 sample.
+Created by Codex account 3 for EazyHood.
+Date: 16 October 2026.
+Used for pre-assignment review by Arrow Air.
+Keep while the application remains active.

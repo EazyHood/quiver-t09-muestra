@@ -1,15 +1,15 @@
 {
   "source_commit": "9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e",
-  "scope": "M0: muestra previa a asignación, no entrega M1/M2",
+  "scope": "M0: pre-assignment sample, not an M1 or M2 delivery",
   "decisions": [
     {
       "id": "D-001",
       "phase": "PT1",
-      "decision": "Calcular CG e inercias desde el CAD de Onshape; actualizar una masa añadida con promedio ponderado y ejes paralelos.",
-      "replaced": "No se identifica un método anterior.",
-      "why": "Hacer repetible el cálculo sin esperar el cierre de todos los detalles del diseño. La nota propone un script Octave.",
+      "decision": "Calculate CG and inertia from Onshape CAD; incorporate an added mass using a weighted average and the parallel-axis theorem.",
+      "replaced": "No earlier method is identified.",
+      "why": "Make the calculation repeatable before all design details are finalized. The note proposes an Octave script.",
       "status": "Open",
-      "limit": "La fuente omite tornillería, cables y conectores. No extrapolar estos resultados a la masa medida del dev kit ni afirmar que aquí se validó el script.",
+      "limit": "The source omits fasteners, cables, and connectors. These results do not establish the measured mass of the dev kit, and this review did not validate the script.",
       "evidence": [
         {
           "path": "task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md",
@@ -23,11 +23,11 @@
     {
       "id": "D-002",
       "phase": "PT1",
-      "decision": "Seleccionar el conjunto integrado Hobbywing XRotor X6 Plus.",
-      "replaced": "Alternativas comparadas en la tabla; no consta una sustitución de hardware ya instalado.",
-      "why": "La comparación del informe favorece coste, empuje y peso, además de reducir el trabajo de instalación.",
+      "decision": "Select the integrated Hobbywing XRotor X6 Plus propulsion assembly.",
+      "replaced": "Alternatives compared in the table; replacement of already-installed hardware is not established.",
+      "why": "The report comparison favors cost, thrust, and weight, while reducing installation work.",
       "status": "Open",
-      "limit": "Selección histórica documentada. No confirma la variante ni el inventario de motores instalados en octubre de 2026.",
+      "limit": "This is a documented historical selection. It does not establish the exact variant or inventory installed in October 2026.",
       "evidence": [
         {
           "path": "docs/Engineering-Reports/PT1-Engineering-Report.md",
@@ -41,11 +41,11 @@
     {
       "id": "D-003",
       "phase": "PT2",
-      "decision": "Utilizar conectores EURO en la PCB principal.",
-      "replaced": "No se identifica el conector previo a PT2.",
-      "why": "Facilitar el mantenimiento, según la lista de capacidades de PT2.",
+      "decision": "Use EURO connectors on the main PCB.",
+      "replaced": "The connector used before PT2 is not identified.",
+      "why": "Improve maintainability, according to the PT2 feature list.",
       "status": "Superseded by D-005",
-      "limit": "Sustituida explícitamente por Phoenix en PT3: véase D-005. No significa que toda placa PT2 haya sido retirada.",
+      "limit": "Explicitly superseded by Phoenix connectors in PT3: see D-005. This does not imply that every PT2 board was withdrawn.",
       "evidence": [
         {
           "path": "docs/Engineering-Reports/PT2-Engineering-Report.md",
@@ -66,11 +66,11 @@
     {
       "id": "D-004",
       "phase": "PT2",
-      "decision": "Separar la precarga al accionar el interruptor principal y la activación del SSR mediante radio y GPIO del controlador.",
-      "replaced": "No se documenta una arquitectura anterior en este pasaje.",
-      "why": "Limitar la corriente de irrupción antes del cierre del SSR; permitir cortar potencia a los motores desde el control remoto.",
+      "decision": "Separate precharge triggered by the main switch from SSR activation through radio control and the flight controller GPIO.",
+      "replaced": "No preceding architecture is documented in this passage.",
+      "why": "Limit inrush current before the SSR closes, and allow motor power to be cut through remote control.",
       "status": "Standing",
-      "limit": "Arquitectura descrita, no ensayo propio de seguridad. El informe PT3 conserva precarga y control SSR; la implementación exacta requiere esquema de revisión.",
+      "limit": "This describes an architecture, not a safety test performed by this review. PT3 retains precharge and SSR control; the exact implementation requires the applicable schematic revision.",
       "evidence": [
         {
           "path": "docs/Engineering-Reports/PT2-Engineering-Report.md",
@@ -91,11 +91,11 @@
     {
       "id": "D-005",
       "phase": "PT3",
-      "decision": "Reemplazar terminales estilo Euro por conectores Phoenix en la PCB principal.",
-      "replaced": "D-003: conectores EURO de PT2.",
-      "why": "El informe justifica el cambio por prototipado más rápido y conexiones de campo más fiables.",
+      "decision": "Replace Euro-style terminals with Phoenix connectors on the main PCB.",
+      "replaced": "D-003: PT2 EURO connectors.",
+      "why": "The report attributes the change to faster prototyping and more reliable field connections.",
       "status": "Standing",
-      "limit": "El motivo se atribuye al informe; no se afirma una mejora de fiabilidad cuantificada por esta revisión.",
+      "limit": "The rationale is attributed to the report; this review does not claim a quantified reliability improvement.",
       "evidence": [
         {
           "path": "docs/Engineering-Reports/PT3-Engineering-Report.md",
@@ -109,11 +109,11 @@
     {
       "id": "D-006",
       "phase": "PT3",
-      "decision": "Situar GNSS aproximadamente 2 cm sobre el recinto FCU mediante un soporte de arco, separado de la PCB.",
-      "replaced": "Se introduce un soporte nuevo; no se identifica aquí la ubicación exacta anterior.",
-      "why": "Reducir interferencia electromagnética y sostener el receptor sin contacto directo con FCU/PCB.",
+      "decision": "Position the GNSS approximately 2 cm above the FCU enclosure using an arch bracket, separated from the PCB.",
+      "replaced": "A new bracket is introduced; the exact previous position is not identified here.",
+      "why": "Reduce electromagnetic interference and support the receiver without direct contact with the FCU or PCB.",
       "status": "Open",
-      "limit": "Es intención del diseño. Faltan mediciones comparables de EMI para concluir que resolvió el problema.",
+      "limit": "This is a design intention. Comparable EMI measurements are missing, so it cannot establish that the interference problem was resolved.",
       "evidence": [
         {
           "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
@@ -127,11 +127,11 @@
     {
       "id": "D-007",
       "phase": "PT3",
-      "decision": "Montar las interfaces de accesorios en extensores de 3 cm.",
-      "replaced": "Se añade separación respecto al fuselaje; la nota no especifica todos los montajes anteriores.",
-      "why": "Mejorar el acceso para desmontar y reemplazar equipos de misión.",
+      "decision": "Mount attachment interfaces on 3 cm extenders.",
+      "replaced": "Clearance from the airframe is added; the note does not specify every earlier mount.",
+      "why": "Improve access when removing and replacing mission equipment.",
       "status": "Standing",
-      "limit": "Decisión dimensional explícita. No implica compatibilidad demostrada con todos los accesorios.",
+      "limit": "The dimension is explicitly documented. It does not establish compatibility with every attachment.",
       "evidence": [
         {
           "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
@@ -145,11 +145,11 @@
     {
       "id": "D-008",
       "phase": "PT3",
-      "decision": "Prolongar los orificios de los tornillos inferiores de los brazos a través de las paredes de batería y añadir recortes de acceso.",
-      "replaced": "Acceso previo entre placa intermedia y pared de batería mediante orificios achaflanados.",
-      "why": "Los tornillos eran difíciles de sustituir; los recortes permiten utilizar una llave Allen.",
+      "decision": "Extend the lower arm screw holes through the battery walls and add access cutouts.",
+      "replaced": "Earlier access between the middle plate and battery wall through chamfered holes.",
+      "why": "The screws were difficult to replace; the cutouts allow access with an Allen key.",
       "status": "Standing",
-      "limit": "Cambio de mantenibilidad documentado; no se ha cronometrado un montaje ni inspeccionado una unidad.",
+      "limit": "This is a documented maintainability change. No assembly time was measured and no physical unit was inspected during this review.",
       "evidence": [
         {
           "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
@@ -162,12 +162,12 @@
     },
     {
       "id": "D-009",
-      "phase": "Dev kit",
-      "decision": "Fijar la PCB principal a una interfaz impresa en 3D montada sobre amortiguadores de goma.",
-      "replaced": "La nota no identifica un montaje anterior concreto.",
-      "why": "Reducir la transmisión de vibración de alta frecuencia desde el bastidor a la PCB y sensores del controlador.",
+      "phase": "Dev Kit",
+      "decision": "Secure the main PCB to a 3D-printed interface mounted on rubber dampers.",
+      "replaced": "The note does not identify a specific earlier mount.",
+      "why": "Reduce transmission of high-frequency vibration from the frame to the PCB and flight-controller sensors.",
       "status": "Standing",
-      "limit": "La fuente marca la nota Valid. No aporta aquí valores de atenuación medidos; se conserva como objetivo, no resultado certificado.",
+      "limit": "The source labels the note Valid. It provides no measured attenuation values here; vibration reduction remains an objective rather than a result certified by this review.",
       "evidence": [
         {
           "path": "task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md",
@@ -180,12 +180,12 @@
     },
     {
       "id": "D-010",
-      "phase": "Dev kit",
-      "decision": "Documentar la maleta Pelican 1640 y espuma PE, manteniendo abierta la contradicción con Nanuk en la misma nota.",
-      "replaced": "La propuesta incorporada dice Nanuk; el resumen de realización dice Pelican 1640.",
-      "why": "Transportar el dron y accesorios con retención y protección.",
+      "phase": "Dev Kit",
+      "decision": "Record the Pelican 1640 case and PE foam while leaving the contradictory Nanuk reference in the same note unresolved.",
+      "replaced": "The embedded proposal names Nanuk; the implementation summary names Pelican 1640.",
+      "why": "Transport the drone and accessories with retention and protection.",
       "status": "Open",
-      "limit": "La entrega no resuelve por inferencia la discrepancia. Pedir confirmación de modelo/BOM y marcar la propuesta antigua como sustituida si el responsable lo acredita.",
+      "limit": "This submission does not resolve the discrepancy by inference. The model/BOM needs confirmation before the earlier proposal can be marked as superseded.",
       "evidence": [
         {
           "path": "task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md",
