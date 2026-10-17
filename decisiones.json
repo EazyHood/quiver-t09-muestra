@@ -1,0 +1,200 @@
+{
+  "source_commit": "9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e",
+  "scope": "M0: muestra previa a asignación, no entrega M1/M2",
+  "decisions": [
+    {
+      "id": "D-001",
+      "phase": "PT1",
+      "decision": "Calcular CG e inercias desde el CAD de Onshape; actualizar una masa añadida con promedio ponderado y ejes paralelos.",
+      "replaced": "No se identifica un método anterior.",
+      "why": "Hacer repetible el cálculo sin esperar el cierre de todos los detalles del diseño. La nota propone un script Octave.",
+      "status": "Open",
+      "limit": "La fuente omite tornillería, cables y conectores. No extrapolar estos resultados a la masa medida del dev kit ni afirmar que aquí se validó el script.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md",
+          "line_start": 9,
+          "line_end": 24,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt1/avionics/0001-cg-inertia-matrix/information-note.md#L9-L24",
+          "sha256": "6cfbb3dc2682400f203a5d821efaca79cc7fa5fd5213d30fb51dca8d94d64cd6"
+        }
+      ]
+    },
+    {
+      "id": "D-002",
+      "phase": "PT1",
+      "decision": "Seleccionar el conjunto integrado Hobbywing XRotor X6 Plus.",
+      "replaced": "Alternativas comparadas en la tabla; no consta una sustitución de hardware ya instalado.",
+      "why": "La comparación del informe favorece coste, empuje y peso, además de reducir el trabajo de instalación.",
+      "status": "Open",
+      "limit": "Selección histórica documentada. No confirma la variante ni el inventario de motores instalados en octubre de 2026.",
+      "evidence": [
+        {
+          "path": "docs/Engineering-Reports/PT1-Engineering-Report.md",
+          "line_start": 567,
+          "line_end": 591,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT1-Engineering-Report.md#L567-L591",
+          "sha256": "0396c518b91e1ea7f88e798eca35ad3e5bffc64f02573ad6993a8cdc6929d6a8"
+        }
+      ]
+    },
+    {
+      "id": "D-003",
+      "phase": "PT2",
+      "decision": "Utilizar conectores EURO en la PCB principal.",
+      "replaced": "No se identifica el conector previo a PT2.",
+      "why": "Facilitar el mantenimiento, según la lista de capacidades de PT2.",
+      "status": "Superseded by D-005",
+      "limit": "Sustituida explícitamente por Phoenix en PT3: véase D-005. No significa que toda placa PT2 haya sido retirada.",
+      "evidence": [
+        {
+          "path": "docs/Engineering-Reports/PT2-Engineering-Report.md",
+          "line_start": 450,
+          "line_end": 464,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L450-L464",
+          "sha256": "14f9c5e952196add683746b1e11b907f323f1c911448056c021c1ad162deeebc"
+        },
+        {
+          "path": "docs/Engineering-Reports/PT3-Engineering-Report.md",
+          "line_start": 122,
+          "line_end": 124,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L122-L124",
+          "sha256": "acf1fa0f5111f064a50d8e04d89baca16b8fa1e8cdfe0b50c400d8f5acf88127"
+        }
+      ]
+    },
+    {
+      "id": "D-004",
+      "phase": "PT2",
+      "decision": "Separar la precarga al accionar el interruptor principal y la activación del SSR mediante radio y GPIO del controlador.",
+      "replaced": "No se documenta una arquitectura anterior en este pasaje.",
+      "why": "Limitar la corriente de irrupción antes del cierre del SSR; permitir cortar potencia a los motores desde el control remoto.",
+      "status": "Standing",
+      "limit": "Arquitectura descrita, no ensayo propio de seguridad. El informe PT3 conserva precarga y control SSR; la implementación exacta requiere esquema de revisión.",
+      "evidence": [
+        {
+          "path": "docs/Engineering-Reports/PT2-Engineering-Report.md",
+          "line_start": 470,
+          "line_end": 473,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT2-Engineering-Report.md#L470-L473",
+          "sha256": "14f9c5e952196add683746b1e11b907f323f1c911448056c021c1ad162deeebc"
+        },
+        {
+          "path": "docs/Engineering-Reports/PT3-Engineering-Report.md",
+          "line_start": 126,
+          "line_end": 128,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L126-L128",
+          "sha256": "acf1fa0f5111f064a50d8e04d89baca16b8fa1e8cdfe0b50c400d8f5acf88127"
+        }
+      ]
+    },
+    {
+      "id": "D-005",
+      "phase": "PT3",
+      "decision": "Reemplazar terminales estilo Euro por conectores Phoenix en la PCB principal.",
+      "replaced": "D-003: conectores EURO de PT2.",
+      "why": "El informe justifica el cambio por prototipado más rápido y conexiones de campo más fiables.",
+      "status": "Standing",
+      "limit": "El motivo se atribuye al informe; no se afirma una mejora de fiabilidad cuantificada por esta revisión.",
+      "evidence": [
+        {
+          "path": "docs/Engineering-Reports/PT3-Engineering-Report.md",
+          "line_start": 118,
+          "line_end": 128,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/docs/Engineering-Reports/PT3-Engineering-Report.md#L118-L128",
+          "sha256": "acf1fa0f5111f064a50d8e04d89baca16b8fa1e8cdfe0b50c400d8f5acf88127"
+        }
+      ]
+    },
+    {
+      "id": "D-006",
+      "phase": "PT3",
+      "decision": "Situar GNSS aproximadamente 2 cm sobre el recinto FCU mediante un soporte de arco, separado de la PCB.",
+      "replaced": "Se introduce un soporte nuevo; no se identifica aquí la ubicación exacta anterior.",
+      "why": "Reducir interferencia electromagnética y sostener el receptor sin contacto directo con FCU/PCB.",
+      "status": "Open",
+      "limit": "Es intención del diseño. Faltan mediciones comparables de EMI para concluir que resolvió el problema.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
+          "line_start": 71,
+          "line_end": 78,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L71-L78",
+          "sha256": "09473ef7c2f2c0dd96978b122473a5dfe1a5ea59421e136e2f2bcd0a64b16585"
+        }
+      ]
+    },
+    {
+      "id": "D-007",
+      "phase": "PT3",
+      "decision": "Montar las interfaces de accesorios en extensores de 3 cm.",
+      "replaced": "Se añade separación respecto al fuselaje; la nota no especifica todos los montajes anteriores.",
+      "why": "Mejorar el acceso para desmontar y reemplazar equipos de misión.",
+      "status": "Standing",
+      "limit": "Decisión dimensional explícita. No implica compatibilidad demostrada con todos los accesorios.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
+          "line_start": 85,
+          "line_end": 93,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L85-L93",
+          "sha256": "09473ef7c2f2c0dd96978b122473a5dfe1a5ea59421e136e2f2bcd0a64b16585"
+        }
+      ]
+    },
+    {
+      "id": "D-008",
+      "phase": "PT3",
+      "decision": "Prolongar los orificios de los tornillos inferiores de los brazos a través de las paredes de batería y añadir recortes de acceso.",
+      "replaced": "Acceso previo entre placa intermedia y pared de batería mediante orificios achaflanados.",
+      "why": "Los tornillos eran difíciles de sustituir; los recortes permiten utilizar una llave Allen.",
+      "status": "Standing",
+      "limit": "Cambio de mantenibilidad documentado; no se ha cronometrado un montaje ni inspeccionado una unidad.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md",
+          "line_start": 125,
+          "line_end": 129,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/pt3/structural/0001-comprehensive_airframe_modification/information-note.md#L125-L129",
+          "sha256": "09473ef7c2f2c0dd96978b122473a5dfe1a5ea59421e136e2f2bcd0a64b16585"
+        }
+      ]
+    },
+    {
+      "id": "D-009",
+      "phase": "Dev kit",
+      "decision": "Fijar la PCB principal a una interfaz impresa en 3D montada sobre amortiguadores de goma.",
+      "replaced": "La nota no identifica un montaje anterior concreto.",
+      "why": "Reducir la transmisión de vibración de alta frecuencia desde el bastidor a la PCB y sensores del controlador.",
+      "status": "Standing",
+      "limit": "La fuente marca la nota Valid. No aporta aquí valores de atenuación medidos; se conserva como objetivo, no resultado certificado.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md",
+          "line_start": 1,
+          "line_end": 27,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/PCB-Vibration-Mount.md#L1-L27",
+          "sha256": "0838a3d8cc0ddcaf586a8e1030001676c68c0d824f4689fb5456f27c1980dc95"
+        }
+      ]
+    },
+    {
+      "id": "D-010",
+      "phase": "Dev kit",
+      "decision": "Documentar la maleta Pelican 1640 y espuma PE, manteniendo abierta la contradicción con Nanuk en la misma nota.",
+      "replaced": "La propuesta incorporada dice Nanuk; el resumen de realización dice Pelican 1640.",
+      "why": "Transportar el dron y accesorios con retención y protección.",
+      "status": "Open",
+      "limit": "La entrega no resuelve por inferencia la discrepancia. Pedir confirmación de modelo/BOM y marcar la propuesta antigua como sustituida si el responsable lo acredita.",
+      "evidence": [
+        {
+          "path": "task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md",
+          "line_start": 9,
+          "line_end": 27,
+          "url": "https://github.com/Arrow-air/project-quiver/blob/9ef9efc80db1e0b7fa2fe03766c2bcf7a8eee03e/task-grant-bounty/Dev-Kit/Transport-Case-Foam-Insert.md#L9-L27",
+          "sha256": "ce78775f6608bde4ff930e30e0c41a30866fc0b6d5cc530a5492a335b6c59b4d"
+        }
+      ]
+    }
+  ]
+}
